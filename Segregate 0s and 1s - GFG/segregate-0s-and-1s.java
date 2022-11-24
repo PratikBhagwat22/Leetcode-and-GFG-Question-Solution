@@ -34,29 +34,36 @@ public class Main {
 //User function Template for Java
 
 class Solution {
+    
+    void swap(int[] arr,int i, int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    
     void segregate0and1(int[] arr, int n) {
         
-        int zeros = 0;
-        for(int i=0; i<n; i++)
-        {
-            if(arr[i]==0)
-            {
-                zeros++;
-            }
-        }
-        
-        int i=0;
-        while(i<zeros)
-        {
-            arr[i] = 0;
-            i++;
-        }
-        
-        while(i<n)
-        {
-            arr[i] = 1;
-            i++;
-        }
+       // we can have three areas
+       //1.{0,i-1} ---> which contains 0s to the left side of array.
+       //2.{i,j} ---> this area is undiscovered.
+       //3.{j+1,n-1} ---> which contains 1s to the right side of array.
+       
+       
+       int i=0;
+       int j= n-1;
+       
+       while(i<=j)
+       {
+           if(arr[i]==1)
+           {
+               swap(arr,i,j);
+               j--;
+           }
+           else
+           {
+               i++;
+           }
+       }
     }
 
 }
