@@ -36,8 +36,27 @@ public class Main {
 class Solution {
     void segregate0and1(int[] arr, int n) {
         
-        Arrays.sort(arr);
+        int zeros = 0;
+        for(int i=0; i<n; i++)
+        {
+            if(arr[i]==0)
+            {
+                zeros++;
+            }
+        }
         
+        int i=0;
+        while(i<zeros)
+        {
+            arr[i] = 0;
+            i++;
+        }
+        
+        while(i<n)
+        {
+            arr[i] = 1;
+            i++;
+        }
     }
 
 }
