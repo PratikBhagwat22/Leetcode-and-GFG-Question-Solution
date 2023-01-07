@@ -129,22 +129,19 @@ class Tree
         
         if(root == null) return ans;
         
-      Queue<Node> q = new LinkedList<>();
-      
+        Queue<Node> q = new LinkedList<>();
+        
         q.add(root);
         
         while(q.size() > 0) {
             int size = q.size();
             
-            for(int i=0; i<size; i++)
-            {
-                Node curr = q.remove();
+            for(int i=0; i<size; i++) {
+                Node temp = q.remove();
+                if(i == 0) ans.add(temp.data);
                 
-                // add only the 0th index Node to the ans list.
-                if( i == 0) ans.add(curr.data);
-                
-                if(curr.left != null) q.add(curr.left);
-                if(curr.right != null) q.add(curr.right);
+                if(temp.left != null) q.add(temp.left);
+                if(temp.right != null) q.add(temp.right);
             }
         }
         return ans;
